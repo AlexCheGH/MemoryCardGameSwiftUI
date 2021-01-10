@@ -26,14 +26,15 @@ struct MemoryGame<CardContent> {
                 cards.append(Card(id: pairIndex*2, content: content))
                 cards.append(Card(id: pairIndex*2+1, content: content))
                 
-        }
+            }
+        cards.shuffle()
     }
     
     
     struct Card: Identifiable {
         var id: Int  //needs for Lists, forEach
         
-        var isFaceUp: Bool = false
+        var isFaceUp: Bool = true
         var isMatched: Bool = false
         
         var content: CardContent //no matter what the content will be. It'll be told to the system when initializing the object

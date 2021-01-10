@@ -10,15 +10,16 @@ import SwiftUI
 
 class EmojiMemoryGame {
     
-   //Model. Closed for everything but selfClass
+    //Model. Closed for everything but selfClass
     private var game: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
-
+    
     
     //static to init the game
-   static func createMemoryGame() -> MemoryGame<String> {
-        let emojis = ["🎲", "🎃", "🩺", "💵", "🏳️‍🌈", "😇", "🧶"]
+    static func createMemoryGame() -> MemoryGame<String> {
+        let emojis = ["🎲", "🎃", "🩺", "💵", "🏳️‍🌈", "😇", "🧶", "🎩", "🐰"].shuffled()
+        let randomNumberOfPairs = Int.random(in: 2..<5)
         
-       return MemoryGame<String>(numberOfCardPairs: 3) { pair in
+        return MemoryGame<String>(numberOfCardPairs: randomNumberOfPairs) { pair in
             emojis[pair]
         }
     }

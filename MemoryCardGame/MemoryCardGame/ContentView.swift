@@ -12,12 +12,14 @@ struct ContentView: View {
     
     var body: some View {
         HStack {
-            
             ForEach(viewModel.cards) { card in
                 CardView(card: card)
                     .onTapGesture { viewModel.choose(card: card) }
             }
-        } .padding()
+        }
+        .padding()
+        .aspectRatio(2/3, contentMode: .fit)
+        .font( viewModel.cards.count == 10 ? .body : .largeTitle )
     }
 }
 
@@ -27,20 +29,19 @@ struct ContentView: View {
 struct CardView: View {
     var card: MemoryGame<String>.Card
     
-    
     var body: some View {
+        let cornerRadius:CGFloat = 10
         ZStack {
             if card.isFaceUp {
-            RoundedRectangle(cornerRadius: 10)
-                .fill()
-                .foregroundColor(.white)
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(lineWidth: 3)
-                .foregroundColor(.orange)
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .fill()
+                    .foregroundColor(.white)
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .stroke(lineWidth: 3)
+                    .foregroundColor(.orange)
                 Text(card.content)
-                .font(.largeTitle)
             } else {
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: cornerRadius)
                     .foregroundColor(.orange)
             }
         }
