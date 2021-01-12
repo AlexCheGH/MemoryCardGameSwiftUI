@@ -8,10 +8,10 @@
 import SwiftUI
 
 
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
     
     //Model. Closed for everything but selfClass
-    private var game: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+   @Published private var game: MemoryGame<String> = EmojiMemoryGame.createMemoryGame() //sending notifications to view
     
     
     //static to init the game
@@ -32,7 +32,7 @@ class EmojiMemoryGame {
     //Intents
     func choose(card: MemoryGame<String>.Card) {
         game.choose(card: card)
-        
+//        objectWillChange.send()
         
     }
     

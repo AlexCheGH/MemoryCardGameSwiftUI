@@ -14,7 +14,7 @@ struct MemoryCardGameApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: game)
+            GameView(viewModel: game)
         }
     }
 }
