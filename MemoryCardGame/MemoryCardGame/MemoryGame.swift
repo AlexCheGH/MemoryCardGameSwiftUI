@@ -8,6 +8,34 @@
 import Foundation
 
 
+enum GameTheme {
+    
+    case halloween
+    case newYear
+    case easter
+    case summer
+    case spring
+    case space
+    
+    func makeTheme() -> [String] {
+        switch self {
+        case .halloween:
+            return ["🎃", "🧛‍♂️", "🧟‍♂️", "🌕", "👻", "🕯️", "🍬"]
+        case .newYear:
+            return ["🎉", "⛄️", "🎅", "❄️", "🎁", "⛷", "🌡"]
+        case .easter:
+            return ["🥚", "🐰", "🎁", "🎉", "🎩", "🌈", "🍀"]
+        case .summer:
+            return ["☀️", "🕶", "🌇", "🏊‍♂️", "🍃", "🌊", "⛵️"]
+        case .spring:
+            return ["🍀", "🌈", "🌷", "🐰", "🌦", "🌻", "🌇"]
+        case .space:
+            return ["👽", "👾", "🤖", "🦾", "🚀", "🌑", "👓"]
+        }
+    }
+    
+}
+
 struct MemoryGame<CardContent> where CardContent: Equatable {
     
     var cards: Array<Card>
