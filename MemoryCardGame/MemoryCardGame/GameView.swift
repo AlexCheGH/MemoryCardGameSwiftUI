@@ -12,15 +12,12 @@ struct GameView: View {
     
     var body: some View {
         HStack {
-            ForEach(viewModel.cards) { card in
+            Grid(items: viewModel.cards) { card in
                 CardView(card: card)
                     .onTapGesture { viewModel.choose(card: card) }
-                    .aspectRatio(2/3, contentMode: .fit)
+                    .padding(5)
             }
         }
-        .padding()
-        
-        .font( viewModel.cards.count == 10 ? .body : .largeTitle )
     }
 }
 
@@ -35,7 +32,7 @@ struct CardView: View {
     let fontMultiplier: CGFloat = 0.75
     
     var body: some View {
- 
+        
         GeometryReader { geometry in
             body(for: geometry.size)
         }
@@ -54,10 +51,15 @@ struct CardView: View {
                     .stroke(lineWidth: lineWidth)
                     .foregroundColor(.orange)
                 Text(card.content)
-            } else {
+            } else if !card.isMatched {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .foregroundColor(.orange)
             }
+            
+            if card.isMatched {
+                
+            }
+            
         }
         .font(Font.system(size: fontSize(for: size)))
     }
