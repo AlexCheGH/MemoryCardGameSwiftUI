@@ -22,10 +22,10 @@ extension View {
                 NavigationLink(
                     destination: view
                         .navigationBarItems(leading:
-                                                Text("Back")
+                                                Text("")
                                                 .foregroundColor(.blue)
                         )
-                        .navigationBarHidden(false),
+                        .navigationBarHidden(true),
                     isActive: binding
                 ) {
                     EmptyView()

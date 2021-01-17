@@ -46,7 +46,7 @@ struct GameThemeView: View {
     }
     
     func sendCommands(themeName: String) {
-        UserPreferences().savePreference(themeName)
+        GameThemeManager().savePreference(themeName)
         gameModel.refresh()
         isReady = true
     }

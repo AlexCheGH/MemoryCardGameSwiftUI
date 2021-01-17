@@ -18,7 +18,9 @@
 		A59BE7D225AF9D260073B353 /* GameThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59BE7D125AF9D260073B353 /* GameThemeView.swift */; };
 		A5B8534525B38397001D70E5 /* View + Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B8534425B38397001D70E5 /* View + Utilities.swift */; };
 		A5DD5DA925AEEFF500820467 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD5DA825AEEFF500820467 /* Grid.swift */; };
-		A5FC004925B43D01003B6A75 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC004825B43D01003B6A75 /* UserPreferences.swift */; };
+		A5FC004925B43D01003B6A75 /* GameThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC004825B43D01003B6A75 /* GameThemeManager.swift */; };
+		A5FC004C25B49757003B6A75 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC004B25B49757003B6A75 /* CardView.swift */; };
+		A5FC004F25B497B8003B6A75 /* UpperGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC004E25B497B8003B6A75 /* UpperGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +37,9 @@
 		A59BE7D125AF9D260073B353 /* GameThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameThemeView.swift; sourceTree = "<group>"; };
 		A5B8534425B38397001D70E5 /* View + Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Utilities.swift"; sourceTree = "<group>"; };
 		A5DD5DA825AEEFF500820467 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
-		A5FC004825B43D01003B6A75 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		A5FC004825B43D01003B6A75 /* GameThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameThemeManager.swift; sourceTree = "<group>"; };
+		A5FC004B25B49757003B6A75 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A5FC004E25B497B8003B6A75 /* UpperGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				A59BE7CF25AF9CDF0073B353 /* Grid */,
 				A5652D7725AA29E000FACE43 /* GameView.swift */,
 				A59BE7D125AF9D260073B353 /* GameThemeView.swift */,
+				A5FC004B25B49757003B6A75 /* CardView.swift */,
+				A5FC004E25B497B8003B6A75 /* UpperGameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				A5652D8525AB001100FACE43 /* MemoryGame.swift */,
-				A5FC004825B43D01003B6A75 /* UserPreferences.swift */,
+				A5FC004825B43D01003B6A75 /* GameThemeManager.swift */,
 				A5652D8825AB031A00FACE43 /* EmojiMemoryGame.swift */,
 			);
 			path = Model_ViewModel;
@@ -197,12 +203,14 @@
 				A59BE7CB25AF39D50073B353 /* Array + Utilities.swift in Sources */,
 				A5652D8625AB001100FACE43 /* MemoryGame.swift in Sources */,
 				A5652D7825AA29E000FACE43 /* GameView.swift in Sources */,
+				A5FC004F25B497B8003B6A75 /* UpperGameView.swift in Sources */,
 				A5652D7625AA29E000FACE43 /* MemoryCardGameApp.swift in Sources */,
 				A5B8534525B38397001D70E5 /* View + Utilities.swift in Sources */,
-				A5FC004925B43D01003B6A75 /* UserPreferences.swift in Sources */,
+				A5FC004925B43D01003B6A75 /* GameThemeManager.swift in Sources */,
 				A59BE7C725AF2F580073B353 /* GridLayout.swift in Sources */,
 				A5DD5DA925AEEFF500820467 /* Grid.swift in Sources */,
 				A59BE7D225AF9D260073B353 /* GameThemeView.swift in Sources */,
+				A5FC004C25B49757003B6A75 /* CardView.swift in Sources */,
 				A5652D8925AB031A00FACE43 /* EmojiMemoryGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

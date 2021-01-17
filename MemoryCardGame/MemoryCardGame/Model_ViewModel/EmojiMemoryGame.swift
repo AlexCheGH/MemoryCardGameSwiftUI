@@ -11,12 +11,12 @@ import SwiftUI
 class EmojiMemoryGame: ObservableObject {
     
     //Model. Closed for everything but selfClass
-   @Published private var game: MemoryGame<String> = EmojiMemoryGame.createMemoryGame() //sending notifications to view
+    @Published private var game: MemoryGame<String> = EmojiMemoryGame.createMemoryGame() //sending notifications to view
     
     //static to init the game
     static func createMemoryGame() -> MemoryGame<String> {
         
-        let emojiSet = UserPreferences().getEmojiSet()
+        let emojiSet = GameThemeManager().getEmojiSet()
         let emojis = emojiSet.shuffled()
         let randomNumberOfPairs = Int.random(in: 3..<5)
         
@@ -25,7 +25,10 @@ class EmojiMemoryGame: ObservableObject {
         }
     }
     
-    func refresh() {
+    func refresh(randomly randomTheme: Bool = false) {
+        if randomTheme {
+            GameThemeManager().setRandomTheme()
+        }
         game = EmojiMemoryGame.createMemoryGame()
     }
     
@@ -34,10 +37,15 @@ class EmojiMemoryGame: ObservableObject {
         game.cards
     }
     
+    var score: Int {
+        get { game.score }
+        set {  }
+    }
+    
     //Intents
     func choose(card: MemoryGame<String>.Card) {
         game.choose(card: card)
-//        objectWillChange.send()
+        //        objectWillChange.send()
     }
     
     

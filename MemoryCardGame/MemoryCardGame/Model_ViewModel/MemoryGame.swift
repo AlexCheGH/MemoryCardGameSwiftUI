@@ -8,21 +8,10 @@
 import Foundation
 
 
-enum GameTheme: String, CaseIterable {
-    
-    case halloween = "Halloween"
-    case newYear = "New Year"
-    case easter = "Easter"
-    case summer = "Summer"
-    case spring = "Spring"
-    case space = "Space"
-    
-}
-
-
 struct MemoryGame<CardContent> where CardContent: Equatable {
     
     var cards: Array<Card>
+    var score: Int
     
     var faceUpCardIndex: Int? {
         get { cards.indices.filter { cards[$0].isFaceUp }.only }
@@ -36,6 +25,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 if cards[chosenIndex].content == cards[potentialMatch].content {
                     cards[potentialMatch].isMatched = true
                     cards[chosenIndex].isMatched = true
+                    
+                    addScore()
                 }
                 cards[chosenIndex].isFaceUp = true
             } else {
@@ -54,6 +45,17 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             
         }
         cards.shuffle()
+        score = 0
+    }
+    
+    private mutating func addScore() {
+        score += 2
+    }
+    
+    private mutating func subtractScore() {
+        if score >= 1 {
+            score -= 1
+        }
     }
     
     
