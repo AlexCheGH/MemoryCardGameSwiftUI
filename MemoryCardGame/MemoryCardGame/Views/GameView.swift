@@ -18,6 +18,9 @@ struct GameView: View {
                     .padding(5)
             }
         }
+//        .navigationBarItems(leading: Button("Back", action: {
+//            print("bakc")
+//        }))
     }
 }
 
@@ -32,7 +35,6 @@ struct CardView: View {
     let fontMultiplier: CGFloat = 0.75
     
     var body: some View {
-        
         GeometryReader { geometry in
             body(for: geometry.size)
         }

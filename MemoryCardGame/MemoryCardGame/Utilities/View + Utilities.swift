@@ -21,8 +21,11 @@ extension View {
                     .navigationBarHidden(true)
                 NavigationLink(
                     destination: view
-                        .navigationBarTitle("")
-                        .navigationBarHidden(true),
+                        .navigationBarItems(leading:
+                                                Text("Back")
+                                                .foregroundColor(.blue)
+                        )
+                        .navigationBarHidden(false),
                     isActive: binding
                 ) {
                     EmptyView()
