@@ -12,11 +12,11 @@ struct MemoryCardGameApp: App {
     
 //    let game = EmojiMemoryGame()
     let themes = GameTheme.allCases
-
+    
     var body: some Scene {
         WindowGroup {
-//       GameView(viewModel: game)
-           GameThemeView()
+            GameThemeView()
+//            GameView(viewModel: game)
         }
     }
 }
