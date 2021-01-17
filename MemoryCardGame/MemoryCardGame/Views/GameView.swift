@@ -11,6 +11,11 @@ struct GameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
+        VStack {
+            ButtonView(text: "NewGame") {
+                viewModel.refresh()
+            }
+        }
         HStack {
             Grid(items: viewModel.cards) { card in
                 CardView(card: card)
@@ -18,13 +23,31 @@ struct GameView: View {
                     .padding(5)
             }
         }
-//        .navigationBarItems(leading: Button("Back", action: {
-//            print("bakc")
-//        }))
     }
+    
 }
 
-
+struct ButtonView : View {
+    var text: String
+    var action: () -> Void
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .fill()
+                .foregroundColor(.white)
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(lineWidth: 3)
+                .foregroundColor(.orange)
+            Text(text)
+        }
+        .onTapGesture {
+            action()
+        }
+        .frame(width: UIScreen.main.bounds.width - 10,
+               height: 80)
+    }
+}
 
 
 struct CardView: View {
