@@ -8,33 +8,57 @@
 import Foundation
 
 
-enum GameTheme {
+enum GameTheme: String, CaseIterable {
     
-    case halloween
-    case newYear
-    case easter
-    case summer
-    case spring
-    case space
+    case halloween = "Halloween"
+    case newYear = "New Year"
+    case easter = "Easter"
+    case summer = "Summer"
+    case spring = "Spring"
+    case space = "Space"
     
-    func makeTheme() -> [String] {
-        switch self {
-        case .halloween:
+}
+
+class UserPreferences {
+    private let themeKey = "emoji"
+    
+    private func checkPreference() {
+        let themeSet = UserDefaults.standard.string(forKey: themeKey)
+        
+        if themeSet == nil {
+            let defaultSet = GameTheme.halloween.rawValue
+            UserDefaults.standard.set(defaultSet, forKey: themeKey)
+        }
+    }
+    
+    func savePreference(_ theme: String) {
+        UserDefaults.standard.setValue(theme, forKey: themeKey)
+    }
+    
+    func getEmojiSet() -> [String] {
+        checkPreference()
+        
+        let named = UserDefaults.standard.string(forKey: themeKey)
+        
+        switch named {
+        case GameTheme.halloween.rawValue:
             return ["🎃", "🧛‍♂️", "🧟‍♂️", "🌕", "👻", "🕯️", "🍬"]
-        case .newYear:
+        case GameTheme.newYear.rawValue:
             return ["🎉", "⛄️", "🎅", "❄️", "🎁", "⛷", "🌡"]
-        case .easter:
+        case GameTheme.easter.rawValue:
             return ["🥚", "🐰", "🎁", "🎉", "🎩", "🌈", "🍀"]
-        case .summer:
+        case GameTheme.summer.rawValue:
             return ["☀️", "🕶", "🌇", "🏊‍♂️", "🍃", "🌊", "⛵️"]
-        case .spring:
+        case GameTheme.spring.rawValue:
             return ["🍀", "🌈", "🌷", "🐰", "🌦", "🌻", "🌇"]
-        case .space:
+        case GameTheme.space.rawValue:
             return ["👽", "👾", "🤖", "🦾", "🚀", "🌑", "👓"]
+        default: return ["🎃", "🧛‍♂️", "🧟‍♂️", "🌕", "👻", "🕯️", "🍬"]
         }
     }
     
 }
+
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
     
