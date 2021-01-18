@@ -29,7 +29,7 @@ struct CardView: View {
     
     let cornerRadius: CGFloat = 10
     let lineWidth: CGFloat = 3
-    let fontMultiplier: CGFloat = 0.75
+    let fontMultiplier: CGFloat = 0.7
     
     var body: some View {
         
@@ -50,6 +50,10 @@ struct CardView: View {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(lineWidth: lineWidth)
                     .foregroundColor(.orange)
+                Pie(startAngle: Angle(degrees: 0-90), endangle: Angle(degrees: 110-90))
+                    .padding(5)
+                    .foregroundColor(.orange)
+                    .opacity(0.5)
                 Text(card.content)
             } else if !card.isMatched {
                 RoundedRectangle(cornerRadius: cornerRadius)
@@ -77,6 +81,7 @@ struct CardView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let game = EmojiMemoryGame()
-        GameView(viewModel: game)
+        game.choose(card: game.cards[0])
+        return GameView(viewModel: game)
     }
 }
