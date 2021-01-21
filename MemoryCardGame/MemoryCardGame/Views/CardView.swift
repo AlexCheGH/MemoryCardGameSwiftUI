@@ -10,9 +10,9 @@ import SwiftUI
 struct CardView: View {
     var card: MemoryGame<String>.Card
     
-    let cornerRadius: CGFloat = 10
-    let lineWidth: CGFloat = 3
-    let fontMultiplier: CGFloat = 0.75
+   private let cornerRadius: CGFloat = 10
+   private let lineWidth: CGFloat = 3
+   private let fontMultiplier: CGFloat = 0.75
     
     var body: some View {
         GeometryReader { geometry in
@@ -21,27 +21,19 @@ struct CardView: View {
     }
     
     // MARK:- Body building functions
+    @ViewBuilder
     func body(for size: CGSize) -> some View {
-        ZStack {
-            if card.isFaceUp {
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill()
-                    .foregroundColor(.white)
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(lineWidth: lineWidth)
+        
+        if card.isFaceUp || !card.isMatched {
+            ZStack {
+                Pie(startAngle: Angle(degrees: 0-90), endangle: Angle(degrees: 110-90))
                     .foregroundColor(.orange)
+                    .opacity(0.5)
                 Text(card.content)
-            } else if !card.isMatched {
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .foregroundColor(.orange)
+                    .font(Font.system(size: fontSize(for: size)))
             }
-            
-            if card.isMatched {
-                
-            }
-            
+            .cardify(isFaceUp: card.isFaceUp)
         }
-        .font(Font.system(size: fontSize(for: size)))
     }
     
     func fontSize(for size: CGSize) -> CGFloat {
