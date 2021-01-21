@@ -17,6 +17,7 @@
 		A59BE7CB25AF39D50073B353 /* Array + Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59BE7CA25AF39D50073B353 /* Array + Utilities.swift */; };
 		A5CF63E025B60BB100994B31 /* PieShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF63DF25B60BB100994B31 /* PieShape.swift */; };
 		A5DD5DA925AEEFF500820467 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD5DA825AEEFF500820467 /* Grid.swift */; };
+		A5DF9EB625B8AFEF000F90CB /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF9EB525B8AFEF000F90CB /* Cardify.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A59BE7CA25AF39D50073B353 /* Array + Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Utilities.swift"; sourceTree = "<group>"; };
 		A5CF63DF25B60BB100994B31 /* PieShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieShape.swift; sourceTree = "<group>"; };
 		A5DD5DA825AEEFF500820467 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		A5DF9EB525B8AFEF000F90CB /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				A5652D7725AA29E000FACE43 /* GameView.swift */,
 				A59BE7C625AF2F580073B353 /* GridLayout.swift */,
 				A5652D8825AB031A00FACE43 /* EmojiMemoryGame.swift */,
+				A5DF9EB525B8AFEF000F90CB /* Cardify.swift */,
 				A5CF63DF25B60BB100994B31 /* PieShape.swift */,
 				A5DD5DA825AEEFF500820467 /* Grid.swift */,
 				A5652D8525AB001100FACE43 /* MemoryGame.swift */,
@@ -167,6 +170,7 @@
 				A5CF63E025B60BB100994B31 /* PieShape.swift in Sources */,
 				A59BE7CB25AF39D50073B353 /* Array + Utilities.swift in Sources */,
 				A5652D8625AB001100FACE43 /* MemoryGame.swift in Sources */,
+				A5DF9EB625B8AFEF000F90CB /* Cardify.swift in Sources */,
 				A5652D7825AA29E000FACE43 /* GameView.swift in Sources */,
 				A5652D7625AA29E000FACE43 /* MemoryCardGameApp.swift in Sources */,
 				A59BE7C725AF2F580073B353 /* GridLayout.swift in Sources */,

@@ -25,11 +25,9 @@ struct GameView: View {
 
 
 struct CardView: View {
-    var card: MemoryGame<String>.Card
     
-    let cornerRadius: CGFloat = 10
-    let lineWidth: CGFloat = 3
-    let fontMultiplier: CGFloat = 0.7
+    var card: MemoryGame<String>.Card
+    private let fontMultiplier: CGFloat = 0.7
     
     var body: some View {
         
@@ -41,41 +39,25 @@ struct CardView: View {
     
     
     // MARK:- Body building functions
-    func body(for size: CGSize) -> some View {
-        ZStack {
-            if card.isFaceUp {
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill()
-                    .foregroundColor(.white)
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(lineWidth: lineWidth)
-                    .foregroundColor(.orange)
+    @ViewBuilder // no need to add else statement
+    private func body(for size: CGSize) -> some View {
+        if card.isFaceUp || !card.isMatched {
+            ZStack {
                 Pie(startAngle: Angle(degrees: 0-90), endangle: Angle(degrees: 110-90))
                     .padding(5)
                     .foregroundColor(.orange)
                     .opacity(0.5)
                 Text(card.content)
-            } else if !card.isMatched {
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .foregroundColor(.orange)
+                    .font(Font.system(size: fontSize(for: size)))
             }
-            
-            if card.isMatched {
-                
-            }
-            
-        }
-        .font(Font.system(size: fontSize(for: size)))
+            .cardify(isFaceUp: card.isFaceUp)
+        }   
     }
     
     func fontSize(for size: CGSize) -> CGFloat {
         min(size.width, size.height) * fontMultiplier
     }
 }
-
-
-
-
 
 
 struct ContentView_Previews: PreviewProvider {

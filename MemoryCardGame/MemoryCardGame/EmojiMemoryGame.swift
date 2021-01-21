@@ -17,7 +17,7 @@ class EmojiMemoryGame: ObservableObject {
     //static to init the game
     static func createMemoryGame() -> MemoryGame<String> {
         let emojis = ["🎲", "🎃", "🩺", "💵", "🏳️‍🌈", "😇", "🧶", "🎩", "🐰"].shuffled()
-        let randomNumberOfPairs = Int.random(in: 2..<5)
+        let randomNumberOfPairs = Int.random(in: 3..<5)
         
         return MemoryGame<String>(numberOfCardPairs: randomNumberOfPairs) { pair in
             emojis[pair]
