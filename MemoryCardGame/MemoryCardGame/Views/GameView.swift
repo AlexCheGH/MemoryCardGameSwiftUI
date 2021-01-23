@@ -15,14 +15,18 @@ struct GameView: View {
         UpperGameView(score: $viewModel.score,
                       themeName: $themeName.currentTheme,
                       action: {
-            viewModel.refresh(randomly: true)
-        })
+                        viewModel.refresh(randomly: true)
+                      })
             .frame(width: UIScreen.main.bounds.width - 10,
                    height: 80)
-        HStack {
+        VStack {
             Grid(items: viewModel.cards) { card in
                 CardView(card: card)
-                    .onTapGesture { viewModel.choose(card: card) }
+                    .onTapGesture {
+                        
+                        withAnimation(.linear) {
+                            viewModel.choose(card: card) }
+                    }
                     .padding(5)
             }
         }
