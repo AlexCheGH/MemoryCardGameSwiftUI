@@ -11,7 +11,15 @@ import SwiftUI
 struct Pie: Shape {
     
     var startAngle: Angle
-    var endangle: Angle
+    var endAngle: Angle
+    
+    var animatableData: AnimatablePair<Double, Double> {
+        get { AnimatablePair(startAngle.radians, endAngle.radians) }
+        set {
+            startAngle = Angle.radians(newValue.first)
+            endAngle = Angle.radians(newValue.second)
+        }
+    }
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -32,7 +40,7 @@ struct Pie: Shape {
         path.addArc(center: center,
                     radius: radius,
                     startAngle: startAngle,
-                    endAngle: endangle,
+                    endAngle: endAngle,
                     clockwise: true)
         
         path.addLine(to: center)
